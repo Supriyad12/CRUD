@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <div class="m1">
+    <div class="head">
+      <h1 class="p-2" style="color: #080808; background-color: rgba(91, 181, 223, 0.863);">DEMO APP</h1>
+    </div>
+    <div class="nav">
+      <ul>
+        <a routerLink="">HOME</a>
+        <a routerLink="">ABOUT US</a>
+        <a routerLink="">JOBS</a>
+        <a routerLink="">CLIENTS </a>
+        <a routerLink="">EMPLOYERS</a>
+        <a routerLink="">CONTACT US</a>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container-fluid main">
+
+    <div class=" first_sec mb-5" >
+      <h1 class="text-info mt-4">Profile</h1>
+
+<div> <img src="{{userData.UploadPic}}" alt=""></div>
+
+      <div class="d-flex justify-content-start">
+        <input hidden type="file" #profilePic (change)="handleImageSelect($event)">
+        <button class="me-2 btn btn-warning"  (click)="profilePic.click()"> Edit Photo </button>
+        <button mat-raised-button class="btn btn-warning" (click)="openDialog('1')">Edit Profile </button>
+      </div>
+    </div>
+    <div class=" second_sec ms-3">
+      <p>
+        I'm {{userData.f_name}} {{userData.l_name}} and I'm above {{userData.age}} years and you can send your emails to<br>
+      {{userData.email}} i live in state of {{userData.state}} i like to play <br> {{userData.hobbies}} And please send me newsletters. please raech out to me my phone number
+        <br><br><br><br>
+        <button class="btn btn-success"> I Agree</button>
+      </p>
+    </div>
+
+
+  </div>
+
+
+  <div class="m3">
+    <div class="m3_sec">
+      <p style="color: white;">Subscribe to our Job Seeker Mailing List</p>
+      <input type="text" class="search_1 border border-info " placeholder="Enter Your Email Adreess  ">
+      <i class="fa-solid P_abs fa-envelope" style="color: #ffffff;"></i>
+      <br>
+    </div>
+  </div>
+
+
+
+</div>

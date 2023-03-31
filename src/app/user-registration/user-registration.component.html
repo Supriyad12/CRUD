@@ -1,0 +1,156 @@
+<div mat-dialog-content>
+  <mat-toolbar style="padding: 0px; margin: 0;">
+    <mat-toolbar-row>
+      <span>
+        <h3>Resister</h3>
+      </span>
+      <mat-icon mat-dialog-close class="mat-icon">highlight_off</mat-icon>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <form class="form" [formGroup]="RegForm">
+    <div class="main row pt-3">
+      <div class="pic col-4">
+        <div class="mb-4 d-flex justify-content-center">
+          <div class="profile_img" style="background-image: url('{{RegForm.value.UploadPic}}'); "></div>
+          <!-- <img src="'{{RegForm.value.UploadPic}}'" alt="img" style="width: 300px;" /> -->
+        </div>
+        <input hidden type="file" #profilePic (change)="handleImageSelect($event, RegForm, 'UploadPic')">
+        <a href="javascript:void(0);" style="padding-left: 40px;" (click)="profilePic.click()">Upload Your Photo</a>
+      </div>
+      <div class="inp_sec col-8">
+        <div class="row">
+          <div class="col-7"> <mat-form-field appearance="outline" id="lname">
+              <mat-label>First Name</mat-label>
+              <input matInput placeholder="first Name" formControlName="f_name">
+            </mat-form-field>
+            <span *ngIf="RegForm.controls['f_name'].hasError('required') && RegForm.controls['f_name'].touched ">
+              First name is required feild.
+            </span>
+            <span
+              *ngIf="(RegForm.controls['f_name'].hasError('maxlength') || RegForm.controls['f_name'].hasError('maxLength')) && RegForm.controls['f_name'].touched ">
+              First name length limit upto 20 charactors.
+            </span>
+            <span *ngIf="RegForm.controls['f_name'].hasError('pattern') && RegForm.controls['f_name'].touched ">
+              First name use only alphabets.
+            </span>
+          </div>
+          <div class="col-5">
+            <mat-form-field class="col-5" appearance="outline" id="lname">
+              <mat-label>last name</mat-label>
+              <input type="text" matInput placeholder="last name" formControlName="l_name">
+            </mat-form-field>
+            <span *ngIf="RegForm.controls['l_name'].hasError('required') && RegForm.controls['l_name'].touched ">
+              First name is required feild.
+            </span>
+            <span
+              *ngIf="(RegForm.controls['l_name'].hasError('maxlength') || RegForm.controls['l_name'].hasError('maxLength')) && RegForm.controls['l_name'].touched ">
+              First name length limit upto 20 charactors.
+            </span>
+            <span *ngIf="RegForm.controls['l_name'].hasError('pattern') && RegForm.controls['l_name'].touched ">
+              First name use only alphabets.
+            </span>
+          </div>
+        </div>
+        <div class="col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput placeholder="email" formControlName="email">
+          </mat-form-field>
+        </div>
+        <div class="col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>(541) 754-3010</mat-label>
+            <input type="text" matInput placeholder="" formControlName="mobile">
+          </mat-form-field>
+        </div>
+        <div>
+          <span for="customRange1" class="form-label" style="font-size: 15px;">Age ({{RegForm.value.age}})</span>&nbsp;&nbsp;&nbsp;
+          <input type="range" min="20" max="60" class="form-range" id="customRange1" formControlName="age">
+          <p class="s1">20</p>
+          <p class="s2">60</p>
+        </div><br>
+        <div class="col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>State</mat-label>
+            <mat-select formControlName="state">
+              <mat-option value="maharashtra">Maharashtra</mat-option>
+              <mat-option value="hyderabad">Hyderabad</mat-option>
+              <mat-option value="rajastan">Rajastan</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Country</mat-label>
+            <mat-select formControlName="country">
+              <mat-option value="india">India</mat-option>
+              <mat-option value="us">Us</mat-option>
+              <mat-option value="england">England</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        </div>
+        <div class="col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Address</mat-label>
+            <mat-select formControlName="address">
+              <mat-option value="Home">Home</mat-option>
+              <mat-option value="Company">Company</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <section *ngIf="RegForm.value.address && RegForm.value.address != ''">
+          <div class="col-12">
+            <mat-form-field appearance="outline">
+              <mat-label *ngIf="RegForm.value.address == 'Home'">Address1</mat-label>
+              <mat-label *ngIf="RegForm.value.address == 'Company'"> Company Address 1</mat-label>
+              <input type="text" matInput placeholder="Address" formControlName="address_line1">
+            </mat-form-field>
+          </div>
+          <div class="col-12">
+            <mat-form-field appearance="outline">
+              <mat-label *ngIf="RegForm.value.address == 'Home'">Address2</mat-label>
+              <mat-label *ngIf="RegForm.value.address == 'Company'"> Company Address 2</mat-label>
+              <input type="text" matInput placeholder="Address" formControlName="address_line2">
+            </mat-form-field>
+          </div>
+        </section>
+        <div class="col-12">
+          <mat-form-field class="example-chip-list" appearance="outline">
+            <mat-label>Tags</mat-label>
+            <mat-chip-list #chipList aria-label="Fruit selection">
+              <mat-chip *ngFor="let fruit of hobbies" (removed)="remove(fruit)">
+                {{fruit}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input placeholder="Tags" #fruitInput [formControl]="Ctrl" [matAutocomplete]="auto"
+                [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+              <mat-option *ngFor="let hobbies of filteredhobbies | async" [value]="hobbies ">
+                {{hobbies}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+        <div class="col-12">
+          <mat-checkbox class="example-margin" formControlName="subscribe_to_newsletter">subscribe to newsletter</mat-checkbox>
+        </div>
+      </div>
+
+    </div>
+
+  </form>
+
+</div>
+
+
+
+<div mat-dialog-actions [align]="'end'" class="d-flex justify-content-end">
+  <button mat-raised-button mat-dialog-close class="btn ">Cancel</button>
+  <button mat-raised-button color="primary" class="m-2 btn btn-primary" (click)="addRegister()"> Submit</button>
+
+</div>

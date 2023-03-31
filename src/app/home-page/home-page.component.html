@@ -1,0 +1,81 @@
+<div class="main">
+  <div class="container-fluid bg-img" style="background-image:url('./assets/bg-laptop.jpg');">
+    <div class="m1">
+      <div class="head">
+        <h1 class="p-2" style="color: #080808; background-color: white; ">DEMO APP</h1>
+      </div>
+      <div class="nav">
+        <ul>
+          <a routerLink="">HOME</a>
+          <a routerLink="">ABOUT US</a>
+          <a routerLink="">JOBS</a>
+          <a routerLink="">CLIENTS </a>
+          <a routerLink="">EMPLOYERS</a>
+          <a routerLink="">CONTACT US</a>
+        </ul>
+      </div>
+    </div>
+    <div class="head_name">
+      <h1 style="color: #ffffff; font-size: xx-large;"> <i>i'm looking for..</i></h1>
+      <input type="text" class="search" placeholder="Enter a Job Description">
+      <button class="c_btn"> <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+        Search</button><br><br>
+      <div class="d-flex"><br><br>
+        <!-- checkbox -->
+        <div class="form-check form-check-inline">
+          <input class="form-check-input check_sec" type="checkbox" id="inlineCheckbox1" value="option1">
+          <label class="form-check-label check_sec" for="inlineCheckbox1">Full Time</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input check_sec" type="checkbox" id="inlineCheckbox2" value="option2">
+          <label class="form-check-label check_sec" for="inlineCheckbox2">Part Time / Casual / Freelance</label>
+        </div>
+        <!-- select -->
+        <select class="form-select" style="width: 22%; border-radius: 2px;" aria-label="Default select example">
+          <option selected>Select your Location</option>
+          <option value="1">Pune</option>
+          <option value="2">Mumbai</option>
+          <option value="3">Nagpur</option>
+        </select>
+      </div><br>
+      <button class="c_btn btn_sec" mat-button (click)="openDialog()"> Register </button>
+    </div>
+  </div>
+  <div class="m_sec">
+    <h4 style="font-size: xx-large; text-align: center;"> <i>We're leaders in</i></h4>
+    <h4 style="font-size: xxx-large; text-align: center;">Creative Digital Recruitment</h4><br>
+    <hr class="line">
+    <h3 style="text-align: center;">Based in Surry Hills, the creative hub of Sydney we are surrounded by creativity
+      <br>
+      and that reflects on the type of jobs we recruit for
+    </h3><br><br>
+    <button type="button" class="btn btn-outline-info m_sec1">FIND OUT MORE ABOUT US!</button>
+  </div>
+  <div class="m3">
+    <div class="m3_sec">
+      <p style="color: white;">Subscribe to our Job Seeker Mailing List</p>
+      <input type="text" class="search_1 border border-info " placeholder="Enter Your Email Adreess  ">
+      <i class="fa-solid P_abs fa-envelope" style="color: #ffffff;"></i>
+      <br>
+    </div>
+  </div>
+  <div>
+    <div class="sec_l">
+      <div>
+        <i class="fa-regular fa-envelope me-2" style="color: #4081f2;"></i> <input type="text">
+      </div><br>
+
+      <div class=" d-flex  justify-content-between">
+        <div>
+          <p>Copyright <i class="fa-regular fa-copyright"></i> 2014 Two Bytes Consulting <b>Terms and Policies</b></p>
+        </div>
+        <div> <button class=" border border-info me-1" style="background-color: rgb(218, 209, 197);"> <i
+              class="fa-brands fa-twitter "></i> Tweet</button>
+          <button class="badge bg-light  text-info ">485</button>
+          <button class="border border-info me-1 ms-2" style="background-color: rgb(218, 209, 197);"> <i
+              class="fa-brands fa-facebook "></i> Like</button>
+          <button class="badge bg-light text-info">117</button>
+        </div>
+      </div>
+    </div>
+  </div>
